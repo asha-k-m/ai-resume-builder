@@ -2,3 +2,28 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Angular Material prebuilt theme (deep purple primary) */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* Global overrides to ensure Material form-field outline and text colors */
+/* Purple outline for outline appearance */
+.mat-form-field-appearance-outline .mat-form-field-outline-path,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+	stroke: #7b61ff !important;
+}
+
+/* Black labels and input text */
+::ng-deep .mat-form-field-label {
+	color: #000 !important;
+	opacity: 1 !important;
+}
+
+::ng-deep input.mat-input-element, ::ng-deep textarea.mat-input-element {
+	color: #000 !important;
+}
+
+/* Make outline a bit thicker for clarity */
+.mat-form-field-appearance-outline .mat-form-field-outline-path {
+	stroke-width: 1.2 !important;
+}
