@@ -1,0 +1,211 @@
+
+:host { display: block; }
+
+.login-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #5ee7df 0%, #b490ca 50%, #e66465 100%);
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-corner at 10% 20%, rgba(255,255,255,0.06), transparent 15%),
+              radial-gradient(closest-corner at 90% 80%, rgba(0,0,0,0.06), transparent 20%);
+  pointer-events: none;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(16,24,40,0.35);
+  background: rgba(255,255,255,0.95);
+  position: relative;
+  z-index: 1;
+}
+
+.card-inner { text-align: center; }
+
+.title {
+  margin: 0 0 6px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 0 0 18px 0;
+  font-size: 13px;
+  color: rgba(0,0,0,0.6);
+}
+
+.full-width { width: 100%; display:block; margin-bottom: 10px; }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  justify-content: center;
+  width: 100%;
+}
+
+.gradient-btn {
+  background: linear-gradient(90deg, #7b61ff 0%, #ff6ec7 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 0;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.divider {
+  margin: 18px 0 8px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.55);
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  font-weight: 700;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(16,24,40,0.12);
+}
+.social.fb { background: #1877f2; }
+.social.google { background: linear-gradient(90deg,#f44336 0,#fbbc05 40%,#34a853 70%,#4285f4 100%); }
+.social.twitter { background: #1da1f2; }
+
+.forgot { margin-top: 14px; font-size: 13px; }
+.forgot a { color: rgba(0,0,0,0.65); cursor: pointer; text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .login-card { padding: 20px; }
+  .social { width: 38px; height: 38px; }
+}
+
+/* Create account link styling */
+.create-account {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0,0,0,0.7);
+}
+
+.create-account .create-link {
+  margin-left: 8px;
+  color: #7b61ff;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.create-account .create-link:hover {
+  text-decoration: underline;
+}
+
+/* Material form-field visibility fixes */
+.login-card .mat-form-field {
+  width: 100%;
+}
+
+/* Outline stroke color */
+.login-card .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0,0,0,0.12);
+}
+.login-card .mat-form-field-appearance-outline .mat-form-field-outline-path,
+.login-card .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  stroke: rgba(0,0,0,0.12) !important;
+}
+
+/* Label and input colors when not focused */
+.login-card .mat-form-field-label {
+  color: rgba(0,0,0,0.6) !important;
+}
+.login-card input.mat-input-element {
+  color: rgba(0,0,0,0.87) !important;
+}
+
+/* Slight background to inputs for contrast on translucent card */
+.login-card .mat-form-field-infix {
+  background: rgba(255,255,255,0.92);
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 6px;
+}
+
+/* Focus state stronger color */
+.login-card .mat-form-field.mat-focused .mat-form-field-outline-path,
+.login-card .mat-form-field.mat-focused .mat-form-field-outline-thick {
+  stroke: rgba(124,81,255,0.95) !important;
+}
+
+/* Stronger, global overrides to ensure labels/inputs are visible before focus */
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline-path,
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  stroke: rgba(0,0,0,0.12) !important;
+}
+
+::ng-deep .login-card .mat-form-field-label {
+  color: rgba(0,0,0,0.7) !important;
+  opacity: 1 !important;
+  transform: translateY(-6px) scale(0.75) !important;
+}
+
+::ng-deep .login-card input.mat-input-element {
+  color: #000000 !important;
+}
+
+/* Ensure placeholder and prefix/suffix remain visible */
+::ng-deep .login-card .mat-form-field-infix {
+  background: rgba(255,255,255,0.94) !important;
+}
+
+/* Ensure label doesn't hide under background */
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  padding-top: 0.6rem !important;
+}
+
+/* Fallback: make outline more visible on load */
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline-path {
+  stroke-width: 1.2 !important;
+}
+
+/* Purple outline and black labels/text for all states */
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline-path,
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  stroke: #7b61ff !important;
+}
+
+::ng-deep .login-card .mat-form-field-label {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+::ng-deep .login-card .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #7b61ff !important;
+}
+
+/* Stronger focus state */
+::ng-deep .login-card .mat-form-field.mat-focused .mat-form-field-outline-path,
+::ng-deep .login-card .mat-form-field.mat-focused .mat-form-field-outline-thick {
+  stroke: #5a3bff !important;
+  stroke-width: 1.6 !important;
+}

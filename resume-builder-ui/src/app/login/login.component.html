@@ -1,0 +1,48 @@
+<div class="login-container">
+  <div class="background-overlay"></div>
+  <mat-card class="login-card">
+    <div class="card-inner">
+      <h1 class="title">Login</h1>
+      <p class="subtitle">We are happy to see you back!</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" autocomplete="username" />
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="current-password" />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+
+        <div class="actions">
+          <button mat-raised-button class="gradient-btn" type="submit">Sign In</button>
+        </div>
+      </form>
+
+      <div class="divider">or sign in with</div>
+
+      <div class="socials">
+        <button class="social fb" aria-label="Sign in with Facebook">f</button>
+        <button class="social google" aria-label="Sign in with Google">G</button>
+        <button class="social twitter" aria-label="Sign in with Twitter">X</button>
+      </div>
+
+      <div class="forgot">
+        <a (click)="onForgotPassword()">Forgot password?</a>
+      </div>
+
+      <div class="create-account">
+        <span>First time here?</span>
+        <a (click)="onRegister()" class="create-link">Create an account</a>
+      </div>
+    </div>
+  </mat-card>
+</div>
